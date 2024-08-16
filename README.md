@@ -3,6 +3,7 @@
 ![Task Manager ](imglink)
 
 
+
 #website [link](imgwebsite)
 
 ## Overview
@@ -25,6 +26,9 @@ The task manager offers a user-friendly platform for organizing projects. Users 
 ![ERD](img)
 ## ERD
 ![ERD](img)
+## Component diagram
+
+![ERD](./FRONTEND/img/Component_diagram.png)
 
 
 
