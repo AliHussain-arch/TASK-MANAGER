@@ -12,8 +12,8 @@ The task manager offers a user-friendly platform for organizing projects. Users 
 
 ## Date: #/#/2024
 ### BY: Fadel Mohammad
-### BY: 
-### BY: 
+### BY: Ali Hussain
+### BY: Fadel Abbas 
 
 * As a new user, I want to be able to sign up for an account so that I can access the task manager features.
 * As a user, I want to create a new project by adding a title so that I can organize my work.
@@ -25,10 +25,10 @@ The task manager offers a user-friendly platform for organizing projects. Users 
 ## website plan
 ![ERD](img)
 ## ERD
-![ERD](img)
+![ERD](./README%20IMAGES/erd.png)
 ## Component diagram
 
-![ERD](./FRONTEND/img/Component_diagram.png)
+![ERD](./README%20IMAGES/Component_diagram.png)
 
 
 
