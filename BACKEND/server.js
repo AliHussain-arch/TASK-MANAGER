@@ -23,6 +23,12 @@ app.use(morgan('dev'));
 // Importing monogoDB connection
 const database = require('./config/database');
 
+// Importing models
+const User = require('./models/userModel');
+const Project = require('./models/projectModel');
+const Task = require('./models/taskModel');
+
+
 // Setting up port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
