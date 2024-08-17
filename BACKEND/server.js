@@ -19,3 +19,12 @@ const mongoose = require('mongoose');
 // Importing morgan and setting up morgan middleware
 const morgan = require('morgan');
 app.use(morgan('dev'));
+
+// Importing monogoDB connection
+const database = require('./config/database');
+
+// Setting up port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
