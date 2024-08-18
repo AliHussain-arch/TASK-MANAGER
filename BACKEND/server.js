@@ -71,21 +71,81 @@ app.use(authenticateToken);
 // Protected routes
 
 // Project routes
-// Create project
-app.post(':userId/projects', async (req, res) => {
+app.post('/:userId/projects', async (req, res) => {
+    try {
+        const { userId } = req.params;
+        const { name } = req.body;
+        
+        const user = await User.findById(userId);
+        if (!user) {
+            return res.status(404).json({ message: "User not found!" });
+        }
 
+        const project = new Project({
+            name,
+            owner: userId,
+        });
+
+        await project.save();
+        res.status(201).json({ message: "Project created successfully!", project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 // List projects
-app.get(':userId/projects', async (req, res) => {
-
+app.get('/:userId/projects', async (req, res) => {
+    try {
+        const { userId } = req.params;
+        
+        const projects = await Project.find({ owner: userId });
+        
+        res.status(200).json({ projects });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
+
+
+
 // Update project
-app.put(':userId/projects/:projectId', async (req, res) => {
+app.put('/:userId/projects/:projectId', async (req, res) => {
+    try {
+        const { userId, projectId } = req.params;
+        const { name } = req.body;
+        
+        const project = await Project.findOneAndUpdate(
+            { _id: projectId, owner: userId },
+            { name },
+            { new: true }
+        );
 
+        if (!project) {
+            return res.status(404).json({ message: "Project not found!" });
+        }
+        
+        res.status(200).json({ message: "Project updated successfully!", project });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
-// Delete project
-app.delete(':userId/projects/:projectId', async (req, res) => {
 
+// Delete project
+app.delete('/:userId/projects/:projectId', async (req, res) => {
+    try {
+        const { userId, projectId } = req.params;
+        
+        const project = await Project.findOneAndDelete({ 
+            _id: projectId,
+             owner: userId });
+
+        if (!project) {
+            return res.status(404).json({ message: "Project not found!" });
+        }
+        
+        res.status(200).json({ message: "Project deleted successfully!" });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
 
 // Task routes
