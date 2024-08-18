@@ -88,6 +88,7 @@ app.post('/:userId/projects', async (req, res) => {
 
 // List projects
 app.get('/:userId/projects', async (req, res) => {
+
     try {
         const projects = await Project.find({ owner: req.params.userId });
         res.status(200).json({ projects });
@@ -125,21 +126,75 @@ app.delete('/:userId/projects/:projectId', async (req, res) => {
 
 // Task routes
 // Create task under a project
+
+
 app.post(':userId/projects/:projectId/tasks', async (req, res) => {
+    try {
+
+        const project = await Project.findById(req.params.projectId);
+        if (!project) {
+            return res.status(404).json({ message: "Project not found!" });
+        }
+
+        const task = await Task.create({ title: req.body.title, description: req.body.description, projectId: req.params.projectId });
+
+        res.status(201).json({ message: "Task created successfully!", task });
+    } catch (error) {
+      
+        res.status(500).json({ error: error.message });
+    }
 
 });
 // List tasks under a project
 app.get(':userId/projects/:projectId/tasks', async (req, res) => {
+    try {
+
+        const project = await Project.findById(req.params.projectId);
+        if (!project) {
+            return res.status(404).json({ message: "Project not found!" });
+        }
+        const tasks = await Task.find({ projectId: req.params.projectId });
+
+        res.status(200).json({ tasks });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 
 });
 // Update a single task
 app.put(':userId/projects/:projectId/tasks/:taskId', async (req, res) => {
+try {
+
+        const task = await Task.findByIdAndUpdate(
+        req.params.taskId,
+        { title: req.body.title, description: req.body.description, status: req.body.status },
+        { new: true }
+    );
+    if (!task) {
+        return res.status(404).json({ message: "Task not found!" });
+    }
+
+    res.status(200).json({ message: "Task updated successfully!", task });
+} catch (error) {
+
+    res.status(500).json({ error: error.message });
+}
 
 });
 // Delete a single task
 app.delete(':userId/projects/:projectId/tasks/:taskId', async (req, res) => {
-    
-});
+  try {
+
+        const task = await Task.findOneAndDelete({_id: req.params.taskId,projectId: req.params.projectId});
+        if (!task) {
+            return res.status(404).json({ message: "Task not found!" });
+        }
+        res.status(200).json({ message: "Task deleted successfully!" });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+        }
+        });
+
 
 // Setting up port
 const PORT = process.env.PORT || 3000;
