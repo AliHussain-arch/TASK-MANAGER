@@ -63,7 +63,7 @@ app.post("/signin", async (req, res) => {
     username: user.username,
   };
   const token = jwt.sign(payload, process.env.JWT_SECRET);
-  res.status(200).json({ message: "Sign in successful", token });
+  res.status(200).json({ message: "Sign in successful", token, user });
 });
 
 // Token authentication middleware
@@ -137,7 +137,8 @@ app.delete("/:userId/projects/:projectId", async (req, res) => {
 // Task routes
 
 // Create task under a project
-app.post(":userId/projects/:projectId/tasks", async (req, res) => {
+app.post("/:userId/projects/:projectId/tasks", async (req, res) => {
+  console.log('task being created')
   try {
     const project = await Project.findById(req.params.projectId);
     if (!project) {
@@ -155,7 +156,7 @@ app.post(":userId/projects/:projectId/tasks", async (req, res) => {
 });
 
 // List tasks under a project
-app.get(":userId/projects/:projectId/tasks", async (req, res) => {
+app.get("/:userId/projects/:projectId/tasks", async (req, res) => {
   try {
     const project = await Project.findById(req.params.projectId);
     if (!project) {
@@ -169,7 +170,7 @@ app.get(":userId/projects/:projectId/tasks", async (req, res) => {
 });
 
 // Update a single task
-app.put(":userId/projects/:projectId/tasks/:taskId", async (req, res) => {
+app.put("/:userId/projects/:projectId/tasks/:taskId", async (req, res) => {
   try {
     const task = await Task.findByIdAndUpdate(
       req.params.taskId,
@@ -190,7 +191,7 @@ app.put(":userId/projects/:projectId/tasks/:taskId", async (req, res) => {
 });
 
 // Delete a single task
-app.delete(":userId/projects/:projectId/tasks/:taskId", async (req, res) => {
+app.delete("/:userId/projects/:projectId/tasks/:taskId", async (req, res) => {
   try {
     const task = await Task.findOneAndDelete({
       _id: req.params.taskId,
