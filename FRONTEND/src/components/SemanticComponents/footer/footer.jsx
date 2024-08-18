@@ -19,7 +19,7 @@ export default function footer() {
             </li>
           </ul>
           <div className="footer-bottom">
-            <p>Copyright 2024. Registration System. All Rights Reserved</p>
+            <p>Copyright 2024. Task Manager . All Rights Reserved</p>
           </div>
         </div>
       </footer>
