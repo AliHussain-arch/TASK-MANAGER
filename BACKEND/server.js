@@ -70,6 +70,42 @@ app.use(authenticateToken);
 
 // Protected routes
 
+// Project routes
+// Create project
+app.post(':userId/projects', async (req, res) => {
+
+});
+// List projects
+app.get(':userId/projects', async (req, res) => {
+
+});
+// Update project
+app.put(':userId/projects/:projectId', async (req, res) => {
+
+});
+// Delete project
+app.delete(':userId/projects/:projectId', async (req, res) => {
+
+});
+
+// Task routes
+// Create task under a project
+app.post(':userId/projects/:projectId/tasks', async (req, res) => {
+
+});
+// List tasks under a project
+app.get(':userId/projects/:projectId/tasks', async (req, res) => {
+
+});
+// Update a single task
+app.put(':userId/projects/:projectId/tasks/:taskId', async (req, res) => {
+
+});
+// Delete a single task
+app.delete(':userId/projects/:projectId/tasks/:taskId', async (req, res) => {
+    
+});
+
 // Setting up port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
