@@ -40,6 +40,7 @@ function App() {
   return (
     <>
       <SignUp signUp={signUp}/>
+    
     </>
   );
 }
