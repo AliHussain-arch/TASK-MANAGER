@@ -38,7 +38,7 @@
     border-radius: 4px;
   }
   
-  button {
+  .button-Sign-Up {
     background-color: #5f51fa;
     color: #fff;
     padding: 10px;
@@ -49,7 +49,7 @@
 
   }
   
-  button:hover {
+  .button-Sign-Up:hover {
     background-color:#4c41c5;
 color: #fff;
 box-shadow: 0 0 5px  #c1c0c0;

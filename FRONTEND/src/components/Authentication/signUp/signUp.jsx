@@ -56,7 +56,7 @@ export default function SignUp({signUp}) {
             value={formData.confirmPassword}
           />
         </div>
-        <button type="submit">Sign Up</button>
+        <button className="button-Sign-Up" type="submit">Sign Up</button>
       </form>
     </div>
   );

@@ -38,7 +38,7 @@ export default function SignIn({signIn, getUser, setUser}) {
             value={formData.password}
           />
         </div>
-        <button type="submit">Sign In</button>
+        <button className="button-sign-in" type="submit">Sign In</button>
       </form>
     </div>
   );
