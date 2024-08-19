@@ -12,7 +12,7 @@ export default function SignIn({signIn, getUser, setUser}) {
     setUser(await getUser)
   }
   return (
-    
+    <div className="inner-body">
     <div className="container">
       <h1>SignIn</h1>
       <form onSubmit={handleFormSubmit}>
@@ -38,8 +38,9 @@ export default function SignIn({signIn, getUser, setUser}) {
             value={formData.password}
           />
         </div>
-        <button type="submit">Sign In</button>
+        <button className="button-sign-in" type="submit">Sign In</button>
       </form>
+    </div>
     </div>
   );
 }
