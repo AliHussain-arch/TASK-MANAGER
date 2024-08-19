@@ -25,6 +25,8 @@ import authService from './services/authService';
 import projectService from './services/projectService';
 
 // Importing Task Services
+import taskService from './services/taskService';
+
 // import taskService from './services/taskService';
 
 function App() {
