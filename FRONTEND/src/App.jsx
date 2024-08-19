@@ -42,10 +42,8 @@ function App() {
   }
   return (
     <>
-      <button onClick={getUser}>Get User Info</button>
-      <button onClick={signOut}>Sign Out</button>
-      <SignIn signIn={signIn}/>
-      <ProjectForm />
+      <SignUp signUp={signUp}/>
+    
     </>
   );
 }
