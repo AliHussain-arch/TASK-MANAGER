@@ -18,19 +18,28 @@ import TaskList from './components/TaskComponents/taskList/taskList';
 import Footer from './components/SemanticComponents/footer/footer';
 import Navbar from './components/SemanticComponents/navbar/navbar';
 
+// Importing Authentication Services
+import authService from './services/authService';
+
+// Importing Project Services
+// import projectService from './services/projectService';
+
+// Importing Task Services
+// import taskService from './services/taskService';
+
 function App() {
+  async function signUp(formData){
+    await authService.signup(formData)
+  }
+  async function signIn(user){
+    await authService.signin(user)
+  }
+  async function signOut(){
+    await authService.signout()
+  }
   return (
     <>
-      <SignIn />
-      <SignUp />
-      <ProjectForm />
-      <ProjectItem />
-      <ProjectList />
-      <TaskForm />
-      <TaskItem />
-      <TaskList />
-      <Footer />
-      <Navbar />
+      <SignUp signUp={signUp}/>
     </>
   );
 }
