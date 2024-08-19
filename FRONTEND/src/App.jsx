@@ -78,7 +78,7 @@ function App() {
   return (
     <>
     <Navbar/>
-      {/* {!user ? (
+      {!user ? (
         <SignIn signIn={authService.signin} getUser={authService.getUser} setUser={setUser} />
       ) : (
         <>
@@ -87,8 +87,8 @@ function App() {
           <ProjectForm createProject={projectService.createProject} updateProject={projectService.updateProject} userId={user.id} />
           <ProjectList listProjects={projectService.listProjects} userId={user.id} />
         </>
-      )} */}
-      <SignUp/>
+      )}
+      
       <Footer/>
       </>
   );
