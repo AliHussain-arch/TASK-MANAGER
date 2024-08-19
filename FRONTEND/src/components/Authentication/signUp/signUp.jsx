@@ -17,7 +17,8 @@ export default function SignUp({signUp}) {
       password: formData.password
     });}
   return (
-    <div className="container">
+    <div className="inner-body">
+    <div className="container-SignUp">
 
       <h1>SignUp</h1>
       <form onSubmit={handleFormSubmit}>
@@ -58,6 +59,7 @@ export default function SignUp({signUp}) {
         </div>
         <button className="button-Sign-Up" type="submit">Sign Up</button>
       </form>
-    </div>
+    </div>    </div>
+
   );
 }
