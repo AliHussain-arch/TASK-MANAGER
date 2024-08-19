@@ -22,12 +22,15 @@ import Navbar from './components/SemanticComponents/navbar/navbar';
 import authService from './services/authService';
 
 // Importing Project Services
-// import projectService from './services/projectService';
+import projectService from './services/projectService';
 
 // Importing Task Services
 // import taskService from './services/taskService';
 
 function App() {
+
+  // Authentication functions
+
   async function signUp(formData){
     await authService.signup(formData)
   }
@@ -40,10 +43,46 @@ function App() {
   async function getUser(){
     await authService.getUser();
   }
+  
+  // Project functions
+
+  async function createProject(userId, formData) {
+    await projectService.createProject(userId, formData);
+  }
+
+  async function listProjects(userId, formData) {
+    await projectService.listProjects(userId, formData);
+  }
+
+  async function updateProject(userId, projectId, formData) {
+    await projectService.updateProject(userId, projectId, formData);
+  }
+
+  async function deleteProject(userId, projectId, formData) {
+    await projectService.deleteProject(userId, projectId, formData);
+  }
+
+  // Task functions
+
+  async function createTask(userId, projectId) {
+    
+  }
+
+  async function listTasks(userId, projectId) {
+    
+  }
+
+  async function updateTask(userId, projectId, taskId){
+
+  }
+
+  async function deleteTask(userId, projectId, taskId) {
+    
+  }
+
   return (
     <>
       <SignUp signUp={signUp}/>
-    
     </>
   );
 }
