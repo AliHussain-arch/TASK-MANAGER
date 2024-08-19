@@ -39,8 +39,8 @@ function App() {
   }
   return (
     <>
-      {/* <SignUp signUp={signUp}/> */}
-      {/* <SignIn/> */}
+      <SignUp signUp={signUp}/>
+      <SignIn/>
       <ProjectForm/>
       <Footer/>
     
