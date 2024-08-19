@@ -8,7 +8,7 @@ export default function SignIn() {
   }
   async function handleFormSubmit(event) {
     event.preventDefault();
-    console.log(formData)
+    signIn(formData);
   }
   return (
     

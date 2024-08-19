@@ -1,4 +1,5 @@
 const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
+
 const signout = () => {
   window.localStorage.removeItem("token");
 };
@@ -13,6 +14,7 @@ const getUser = () => {
     const rawPayload = token.split(".")[1];
     const jsonPayload = window.atob(rawPayload);
     const user = JSON.parse(jsonPayload);
+    console.log(user);
     return user;
   } catch (error) {
     console.log(error);
@@ -28,36 +30,33 @@ const signup = async (formData) => {
       body: JSON.stringify(formData),
     });
     const json = await res.json();
-    if (json.err) {
-      throw new Error(json.err);
+    if (!res.ok) {
+      throw new Error(json.message || "Something went wrong");
     }
     return json;
   } catch (error) {
-    console.log(error);
+    console.error("Signup error:", error);
     throw error;
   }
 };
 
-const signin = async (user) => {
+const signin = async (formData) => {
   try {
     const res = await fetch(`${BACKEND_URL}/signin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(user),
+      body: JSON.stringify(formData),
     });
-
     const json = await res.json();
-
+    console.log(json);
     if (json.error) {
       throw new Error(json.error);
     }
-
     if (json.token) {
       window.localStorage.setItem("token", json.token);
       const rawPayload = json.token.split(".")[1];
       const jsonPayload = window.atob(rawPayload);
       const user = JSON.parse(jsonPayload);
-    
       return user;
     }
   } catch (err) {

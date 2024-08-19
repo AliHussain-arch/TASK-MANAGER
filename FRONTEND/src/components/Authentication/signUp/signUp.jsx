@@ -12,8 +12,10 @@ export default function SignUp({signUp}) {
   }
   async function handleFormSubmit(event) {
     event.preventDefault();
-    signUp(formData)
-  }
+    signUp({
+      username: formData.username,
+      password: formData.password
+    });}
   return (
     <div className="container">
 
