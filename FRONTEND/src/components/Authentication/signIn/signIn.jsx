@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import '../signIn/signIn.css'
 export default function SignIn() {
   const [formData, setFormData] = useState({ username: "", password: "" });
   function handleFormData(event) {
@@ -11,10 +11,11 @@ export default function SignIn() {
     console.log(formData)
   }
   return (
-    <div>
+    
+    <div className="container">
       <h1>SignIn</h1>
       <form onSubmit={()=>handleFormSubmit}>
-        <div>
+        <div >
           <label htmlFor="username">Username</label>
           <input
             type="text"

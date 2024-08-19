@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import '../signUp/signUp.css';
 export default function SignUp({signUp}) {
   const [formData, setFormData] = useState({
     username: '',
@@ -15,9 +15,12 @@ export default function SignUp({signUp}) {
     signUp(formData)
   }
   return (
-    <div>
+    <div className="container">
+
       <h1>SignUp</h1>
+
       <form onSubmit={()=>handleFormSubmit}>
+
         <div>
           <label htmlFor="username">Username</label>
           <input
@@ -29,6 +32,7 @@ export default function SignUp({signUp}) {
             value={formData.username}
           />
         </div>
+
         <div>
           <label htmlFor="email">Password</label>
           <input
@@ -39,6 +43,7 @@ export default function SignUp({signUp}) {
             onChange={handleFormData}
             value={formData.password}
           />
+      
         </div>
         <div>
           <label htmlFor="confirmPassword">Confirm Password</label>
