@@ -1,3 +1,4 @@
+import '../footer/footer.css'
 export default function footer() {
   return (
     <div>

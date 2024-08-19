@@ -17,10 +17,9 @@ export default function ProjectForm({}) {
 
   return (
     <div>
-      <h1>Add Project</h1>
       <form onSubmit={handleFormSubmit}>
         <div>
-          <label htmlFor="name">Project Name</label>
+          <label htmlFor="name">Project Name :</label>
           <input
             type="text"
             id="name"
