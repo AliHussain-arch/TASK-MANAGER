@@ -48,7 +48,6 @@ const signin = async (formData) => {
       body: JSON.stringify(formData),
     });
     const json = await res.json();
-    console.log(json);
     if (json.error) {
       throw new Error(json.error);
     }

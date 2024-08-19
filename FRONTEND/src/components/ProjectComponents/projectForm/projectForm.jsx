@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ProjectForm({}) {
+export default function ProjectForm({createProject, userId}) {
   const [formData, setFormData] = useState({
     name: '',
   });
@@ -12,7 +12,7 @@ export default function ProjectForm({}) {
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    // handleAddProject(formData);
+    createProject(userId, formData);
   }
 
   return (

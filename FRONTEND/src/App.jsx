@@ -31,26 +31,19 @@ import taskService from './services/taskService';
 
 function App() {
 
-  // Authentication functions
+  const [user, setUser] = useState(null);
+  const [projectList, setProjectList] = useState(null);
 
+  // Authentication functions
+  
   async function signUp(formData){
     await authService.signup(formData)
-  }
-  async function signIn(formData){
-    await authService.signin(formData)
-  }
-  async function signOut(){
-    await authService.signout();
   }
   async function getUser(){
     await authService.getUser();
   }
   
   // Project functions
-
-  async function createProject(userId, formData) {
-    await projectService.createProject(userId, formData);
-  }
 
   async function listProjects(userId, formData) {
     await projectService.listProjects(userId, formData);
@@ -84,8 +77,16 @@ function App() {
 
   return (
     <>
-      <SignUp signUp={signUp}/>
-    </>
+      {!user ? (
+        <SignIn signIn={authService.signin} getUser={authService.getUser} setUser={setUser} />
+      ) : (
+        <>
+          <p>Welcome {user.username}</p>
+          <button onClick={() => { authService.signout(); setUser(''); }}>SignOut</button>
+          <ProjectForm createProject={projectService.createProject} updateProject={projectService.updateProject} userId={user.id} />
+          <ProjectList listProjects={projectService.listProjects} userId={user.id} />
+        </>
+      )}</>
   );
 }
 

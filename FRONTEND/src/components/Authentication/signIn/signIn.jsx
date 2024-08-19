@@ -1,6 +1,6 @@
 import { useState } from "react";
 import '../signIn/signIn.css'
-export default function SignIn() {
+export default function SignIn({signIn, getUser, setUser}) {
   const [formData, setFormData] = useState({ username: "", password: "" });
   function handleFormData(event) {
     const { name, value } = event.target;
@@ -9,6 +9,7 @@ export default function SignIn() {
   async function handleFormSubmit(event) {
     event.preventDefault();
     signIn(formData);
+    setUser(await getUser)
   }
   return (
     

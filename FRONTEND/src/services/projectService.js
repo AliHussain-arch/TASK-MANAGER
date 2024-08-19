@@ -1,10 +1,13 @@
 const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 
-const createProject = async () => {
+const createProject = async (userId, formData) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/:userId/projects`, {
+    const res = await fetch(`${BACKEND_URL}/${userId}/projects`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
       body: JSON.stringify(formData),
     });
     const json = await res.json();
@@ -13,17 +16,19 @@ const createProject = async () => {
     }
     return json;
   } catch (error) {
-    console.error("Error", error);
+    console.log("Error:", error);
     throw error;
   }
 };
 
-const listProjects = async () => {
+const listProjects = async (userId) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/:userId/projects`, {
+    const res = await fetch(`${BACKEND_URL}/${userId}/projects`, {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     });
     const json = await res.json();
     if (!res.ok) {
@@ -31,16 +36,19 @@ const listProjects = async () => {
     }
     return json;
   } catch (error) {
-    console.error("Error", error);
+    console.log("Error:", error);
     throw error;
   }
 };
 
-const updateProject = async () => {
+const updateProject = async (userId, projectId, formData) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/:userId/projects/:projectId`, {
+    const res = await fetch(`${BACKEND_URL}/${userId}/projects/${projectId}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
       body: JSON.stringify(formData),
     });
     const json = await res.json();
@@ -49,17 +57,19 @@ const updateProject = async () => {
     }
     return json;
   } catch (error) {
-    console.error("Error", error);
+    console.log("Error:", error);
     throw error;
   }
 };
 
-const deleteProject = async () => {
+const deleteProject = async (userId, projectId) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/:userId/projects`, {
+    const res = await fetch(`${BACKEND_URL}/${userId}/projects/${projectId}`, {
       method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     });
     const json = await res.json();
     if (!res.ok) {
@@ -67,7 +77,7 @@ const deleteProject = async () => {
     }
     return json;
   } catch (error) {
-    console.error("Error", error);
+    console.log("Error:", error);
     throw error;
   }
 };
