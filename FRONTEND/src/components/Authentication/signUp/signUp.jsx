@@ -20,13 +20,9 @@ export default function SignUp({signUp}) {
     <div className="container">
 
       <h1>SignUp</h1>
-<<<<<<< HEAD
-      <form onSubmit={handleFormSubmit}>
-=======
 
       <form onSubmit={()=>handleFormSubmit}>
 
->>>>>>> 1526b35a9ba53217ea178cacf7adf080233c6fc3
         <div>
           <label htmlFor="username">Username</label>
           <input
