@@ -31,15 +31,21 @@ function App() {
   async function signUp(formData){
     await authService.signup(formData)
   }
-  async function signIn(user){
-    await authService.signin(user)
+  async function signIn(formData){
+    await authService.signin(formData)
   }
   async function signOut(){
-    await authService.signout()
+    await authService.signout();
+  }
+  async function getUser(){
+    await authService.getUser();
   }
   return (
     <>
-      <SignUp signUp={signUp}/>
+      <button onClick={getUser}>Get User Info</button>
+      <button onClick={signOut}>Sign Out</button>
+      <SignIn signIn={signIn}/>
+      <ProjectForm />
     </>
   );
 }

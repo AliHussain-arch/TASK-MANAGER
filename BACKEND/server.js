@@ -42,7 +42,7 @@ app.post("/signup", async (req, res) => {
   }
   const hashedPassword = await bcrypt.hash(
     req.body.password,
-    parseInt(process.env.SALT_ROUNDS),
+    Number(process.env.SALT_ROUNDS),
   );
   await User.create({ username: req.body.username, password: hashedPassword });
   res.status(201).json({ message: "User created" });
@@ -50,6 +50,7 @@ app.post("/signup", async (req, res) => {
 
 // setting up sign in route
 app.post("/signin", async (req, res) => {
+  console.log('Sign in');
   const user = await User.findOne({ username: req.body.username });
   if (!user) {
     return res.status(404).json({ message: "User not found" });
