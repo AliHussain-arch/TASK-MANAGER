@@ -40,12 +40,6 @@ function App() {
     await authService.getUser();
   }
 
-  // Project functions
-
-  async function updateProject(userId, projectId, formData) {
-    await projectService.updateProject(userId, projectId, formData);
-  }
-
   // Task functions
 
   async function createTask(userId, projectId) {}
