@@ -1,8 +1,9 @@
 const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
-const createTask = async () => {
+
+const createTask = async (userId, projectId, formData) => {
   try {
     const res = await fetch(
-      `${BACKEND_URL}/:userId/projects/:projectId/tasks`,
+      `${BACKEND_URL}/${userId}/projects/${projectId}/tasks`,
       {
         method: "POST",
         headers: {
@@ -10,7 +11,7 @@ const createTask = async () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify(formData),
-      },
+      }
     );
     const json = await res.json();
     if (!res.ok) {
@@ -18,22 +19,21 @@ const createTask = async () => {
     }
     return json;
   } catch (error) {
-    console.error("Error", error);
     throw error;
   }
 };
-const listTasks = async () => {
+
+const listTasks = async (userId, projectId) => {
   try {
     const res = await fetch(
-      `${BACKEND_URL}/:userId/projects/:projectId/tasks`,
+      `${BACKEND_URL}/${userId}/projects/${projectId}/tasks`,
       {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify(formData),
-      },
+      }
     );
     const json = await res.json();
     if (!res.ok) {
@@ -41,14 +41,14 @@ const listTasks = async () => {
     }
     return json;
   } catch (error) {
-    console.log("Error", error);
     throw error;
   }
 };
-const updateTask = async () => {
+
+const updateTask = async (userId, projectId, taskId, formData) => {
   try {
     const res = await fetch(
-      `${BACKEND_URL}/:userId/projects/:projectId/tasks/:taskId`,
+      `${BACKEND_URL}/${userId}/projects/${projectId}/tasks/${taskId}`,
       {
         method: "PUT",
         headers: {
@@ -56,7 +56,7 @@ const updateTask = async () => {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
         body: JSON.stringify(formData),
-      },
+      }
     );
     const json = await res.json();
     if (!res.ok) {
@@ -64,22 +64,21 @@ const updateTask = async () => {
     }
     return json;
   } catch (error) {
-    console.log("Error", error);
     throw error;
   }
 };
-const deleteTask = async () => {
+
+const deleteTask = async (userId, projectId, taskId) => {
   try {
     const res = await fetch(
-      `${BACKEND_URL}/:userId/projects/:projectId/tasks/:taskId`,
+      `${BACKEND_URL}/${userId}/projects/${projectId}/tasks/${taskId}`,
       {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify(formData),
-      },
+      }
     );
     const json = await res.json();
     if (!res.ok) {
@@ -87,10 +86,10 @@ const deleteTask = async () => {
     }
     return json;
   } catch (error) {
-    console.log("Error", error);
     throw error;
   }
 };
+
 export default {
   createTask,
   listTasks,

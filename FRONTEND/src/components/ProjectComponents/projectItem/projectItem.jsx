@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 // Importing Project Services
 import projectService from "../../../services/projectService";
@@ -6,6 +7,7 @@ import projectService from "../../../services/projectService";
 export default function ProjectItem({ userId, projectName, projectId, refetchProjectList }) {
   const [update, setUpdate] = useState(false);
   const [formData, setFormData] = useState({ name: projectName });
+  const navigate = useNavigate(); // Initialize useNavigate
 
   function handleFormData(event) {
     const { name, value } = event.target;
@@ -24,10 +26,14 @@ export default function ProjectItem({ userId, projectName, projectId, refetchPro
     refetchProjectList();
   }
 
+  function handleProjectClick() {
+    navigate(`/${userId}/projects/${projectId}/tasks`);
+  }
+
   return (
     <ul key={projectId}>
       {!update ? (
-        <h2>{projectName}</h2>
+        <h2 onClick={handleProjectClick} style={{ cursor: 'pointer' }}>{projectName}</h2>
       ) : (
         <form onSubmit={handleFormSubmit}>
           <input
@@ -41,7 +47,7 @@ export default function ProjectItem({ userId, projectName, projectId, refetchPro
         </form>
       )}
       <div>
-        <button  className="but-delet" style={{width: update ? '100%' : ''}}
+        <button className="but-delet" style={{width: update ? '100%' : ''}}
           type="button"
           onClick={handleDeleteProject}
         >
