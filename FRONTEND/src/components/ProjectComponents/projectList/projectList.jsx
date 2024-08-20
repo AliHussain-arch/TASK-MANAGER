@@ -16,6 +16,15 @@ export default function ProjectList({ userId, projectList, setProjectList }) {
     }
     fetchProjectList();
   }, [userId, setProjectList]);
+  
+  async function refetchProjectList() {
+    try {
+      const projectsData = await projectService.listProjects(userId);
+      setProjectList(projectsData.projects || []);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  }
 
   if (!Array.isArray(projectList) || projectList.length === 0) {
     return <h1>No Projects Found</h1>;
@@ -23,11 +32,11 @@ export default function ProjectList({ userId, projectList, setProjectList }) {
 
   return (
     <>
-      <ProjectForm userId={userId}/>
+      <ProjectForm userId={userId} refetchProjectList={refetchProjectList}/>
       <h1>Projects list</h1>
       <ul>
       {projectList.map((project) => (
-        <ProjectItem key={project._id} projectId={project._id} projectName={project.name} userId={userId}/>
+        <ProjectItem key={project._id} projectId={project._id} projectName={project.name} userId={userId} refetchProjectList={refetchProjectList}/>
       ))}
     </ul>
   </>

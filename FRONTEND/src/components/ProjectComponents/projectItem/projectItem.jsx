@@ -3,7 +3,7 @@ import { useState } from "react";
 // Importing Project Services
 import projectService from "../../../services/projectService";
 
-export default function ProjectItem({ userId, projectName, projectId }) {
+export default function ProjectItem({ userId, projectName, projectId, refetchProjectList }) {
   const [update, setUpdate] = useState(false);
   const [formData, setFormData] = useState({ name: projectName });
 
@@ -16,7 +16,14 @@ export default function ProjectItem({ userId, projectName, projectId }) {
     event.preventDefault();
     await projectService.updateProject(userId, projectId, formData);
     setUpdate(false);
+    refetchProjectList();
   }
+
+  async function handleDeleteProject() {
+    await projectService.deleteProject(userId, projectId);
+    refetchProjectList();
+  }
+
   return (
     <li key={projectId}>
       {!update ? (
@@ -35,7 +42,7 @@ export default function ProjectItem({ userId, projectName, projectId }) {
       <div>
         <button
           type="button"
-          onClick={() => projectService.deleteProject(userId, projectId)}
+          onClick={handleDeleteProject}
         >
           Delete Project
         </button>
