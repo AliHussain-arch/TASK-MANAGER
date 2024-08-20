@@ -17,14 +17,15 @@ export default function Navbar({ user, setUser }) {
             <Link to="/signin" id="Sign In">Sign In</Link>
             <Link to="/signup" id="Sign Up">Sign Up</Link>
           </>
-          :  <Link to="/signout" id="Sign Out"><button
+          :  <Link to="/signout" id="Sign Out">
+            <button className='but-Sign-Out'
           onClick={() => {
             authService.signout();
             setUser("");
           }}
         >
-          SignOut
-        </button></Link>}
+        Sign Out
+       </button></Link>}
       </div>
     </nav>
   );
