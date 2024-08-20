@@ -25,7 +25,7 @@ export default function ProjectItem({ userId, projectName, projectId, refetchPro
   }
 
   return (
-    <li key={projectId}>
+    <ul key={projectId}>
       {!update ? (
         <h2>{projectName}</h2>
       ) : (
@@ -36,22 +36,23 @@ export default function ProjectItem({ userId, projectName, projectId, refetchPro
             value={formData.name}
             onChange={handleFormData}
           />
-          <button type="submit">Save</button>
+          
+          <button className="but-save" type="submit">Save</button>
         </form>
       )}
       <div>
-        <button
+        <button  className="but-delet" style={{width: update ? '100%' : ''}}
           type="button"
           onClick={handleDeleteProject}
         >
           Delete Project
         </button>
         {!update && (
-          <button type="button" onClick={() => setUpdate(true)}>
+          <button className="but-update" type="button" onClick={() => setUpdate(true)}>
             Update Project
           </button>
         )}
       </div>
-    </li>
+    </ul>
   );
 }

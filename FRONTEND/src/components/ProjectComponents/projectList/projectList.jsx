@@ -35,10 +35,13 @@ export default function ProjectList({ userId, projectList, setProjectList }) {
       <ProjectForm userId={userId} refetchProjectList={refetchProjectList}/>
       <h1>Projects list</h1>
       <ul>
+      <div className="Projects-list-cards-contener">
       {projectList.map((project) => (
+        <div className="Projects-list-cards">
         <ProjectItem key={project._id} projectId={project._id} projectName={project.name} userId={userId} refetchProjectList={refetchProjectList}/>
+        </div>
       ))}
-    </ul>
+    </div></ul>
   </>
   );
 }
