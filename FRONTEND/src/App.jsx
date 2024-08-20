@@ -5,7 +5,6 @@ import SignIn from "./components/Authentication/signIn/signIn";
 import SignUp from "./components/Authentication/signUp/signUp";
 
 // Importing the Project Components
-import ProjectForm from "./components/ProjectComponents/projectForm/projectForm";
 import ProjectList from "./components/ProjectComponents/projectList/projectList";
 
 // Importing the Task Components
@@ -19,9 +18,6 @@ import Navbar from "./components/SemanticComponents/navbar/navbar";
 
 // Importing Authentication Services
 import authService from "./services/authService";
-
-// Importing Project Services
-import projectService from "./services/projectService";
 
 // Importing Task Services
 import taskService from "./services/taskService";
@@ -75,13 +71,7 @@ function App() {
       ) : (
         <>
           <p>Welcome {user.username}</p>
-          <ProjectForm
-            createProject={projectService.createProject}
-            updateProject={projectService.updateProject}
-            userId={user.id}
-          />
           <ProjectList
-            listProjects={projectService.listProjects}
             projectList={projectList}
             setProjectList={setProjectList}
             userId={user.id}

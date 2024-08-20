@@ -1,6 +1,7 @@
 import { useState } from "react";
-
-export default function ProjectForm({createProject, userId}) {
+import '../projectForm/projectForm.css';
+import projectService from "../../../services/projectService";
+export default function ProjectForm({userId}) {
   const [formData, setFormData] = useState({
     name: '',
   });
@@ -12,14 +13,16 @@ export default function ProjectForm({createProject, userId}) {
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    createProject(userId, formData);
+    projectService.createProject(userId, formData);
   }
 
   return (
-    <div>
+    <div className="inner-body">
+    <div className="container">
+   
       <form onSubmit={handleFormSubmit}>
         <div>
-          <label htmlFor="name">Project Name :</label>
+          {/* <label htmlFor="name">Project Name :</label> */}
           <input
             type="text"
             id="name"
@@ -27,10 +30,13 @@ export default function ProjectForm({createProject, userId}) {
             placeholder="Project Name"
             onChange={handleFormData}
             value={formData.name}
+            className="input-Project-Name"
           />
         </div>
-        <button type="submit">Add Project</button>
+        <button className="Add-proj-but" type="submit">Add Project</button>
       </form>
-    </div>
+   
+     </div>
+     </div>
   );
 }

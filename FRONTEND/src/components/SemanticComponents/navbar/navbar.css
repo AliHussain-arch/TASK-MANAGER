@@ -38,3 +38,13 @@
     border-radius: 5px;
   }
 
+.but-Sign-Out{
+
+
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+}
