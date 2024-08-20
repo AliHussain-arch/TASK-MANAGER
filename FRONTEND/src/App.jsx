@@ -24,7 +24,7 @@ import taskService from "./services/taskService";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(authService.getUser());
   const [projectList, setProjectList] = useState([]);
 
   // Authentication functions
