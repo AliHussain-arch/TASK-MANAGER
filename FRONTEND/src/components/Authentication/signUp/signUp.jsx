@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "../signUp/signUp.css";
-import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import authService from "../../../services/authService";
 
-export default function SignUp({ signUp }) {
+export default function SignUp() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     confirmPassword: "",
   });
-
-  const [redirectToSignIn, setRedirectToSignIn] = useState(false);
 
   function handleFormData(event) {
     const { name, value } = event.target;
@@ -18,15 +18,11 @@ export default function SignUp({ signUp }) {
 
   async function handleFormSubmit(event) {
     event.preventDefault();
-    await signUp({
+    await authService.signup({
       username: formData.username,
       password: formData.password,
     });
-    setRedirectToSignIn(true);
-  }
-
-  if (redirectToSignIn) {
-    return <Navigate to="/signin" />;
+    navigate("/signin");
   }
 
   return (

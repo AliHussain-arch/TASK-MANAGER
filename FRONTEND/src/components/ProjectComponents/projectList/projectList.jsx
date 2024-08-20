@@ -1,10 +1,14 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ProjectItem from '../projectItem/projectItem';
 import '../projectList/projectList.css';
 import ProjectForm from "../projectForm/projectForm";
 import projectService from "../../../services/projectService";
+import { useParams } from "react-router-dom";
 
-export default function ProjectList({ userId, projectList, setProjectList }) {
+export default function ProjectList() {
+  const [projectList, setProjectList] = useState([]);
+  const params = useParams();
+  const { userId } = params;
   useEffect(() => {
     async function fetchProjectList() {
       try {

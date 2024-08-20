@@ -162,7 +162,6 @@ app.post('/:userId/projects/:projectId/tasks', async (req, res) => {
 // List tasks under a project
 app.get('/:userId/projects/:projectId/tasks', async (req, res) => {
     try {
-
         const project = await Project.findById(req.params.projectId);
         if (!project) {
             return res.status(404).json({ message: "Project not found!" });
@@ -173,7 +172,6 @@ app.get('/:userId/projects/:projectId/tasks', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
-
 });
 
 // Update a single task

@@ -8,77 +8,30 @@ import SignUp from "./components/Authentication/signUp/signUp";
 import ProjectList from "./components/ProjectComponents/projectList/projectList";
 
 // Importing the Task Components
-import TaskForm from "./components/TaskComponents/taskForm/taskForm";
-import TaskItem from "./components/TaskComponents/taskItem/taskItem";
 import TaskList from "./components/TaskComponents/taskList/taskList";
 
 // Importing the Semantic Components
 import Footer from "./components/SemanticComponents/footer/footer";
 import Navbar from "./components/SemanticComponents/navbar/navbar";
 
-// Importing Authentication Services
-import authService from "./services/authService";
-
-// Importing Task Services
-import taskService from "./services/taskService";
+// Importing Router Components
 import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [user, setUser] = useState(authService.getUser());
-  const [projectList, setProjectList] = useState([]);
-
-  // Authentication functions
-
-  async function signUp(formData) {
-    await authService.signup(formData);
-  }
-  async function getUser() {
-    await authService.getUser();
-  }
-
-  // Task functions
-
-  async function createTask(userId, projectId) {}
-
-  async function listTasks(userId, projectId) {}
-
-  async function updateTask(userId, projectId, taskId) {}
-
-  async function deleteTask(userId, projectId, taskId) {}
+  const [user, setUser] = useState('');
 
   return (
     <>
-      <Navbar user={user} setUser={setUser} />
-      {!user ? (
-        <>
-          <Routes>
-            <Route
-              path="/signin"
-              element={
-                <SignIn
-                  signIn={authService.signin}
-                  getUser={authService.getUser}
-                  setUser={setUser}
-                />
-              }
-            />
-            <Route
-              path="/signup"
-              element={<SignUp signUp={authService.signup} />}
-            />
-          </Routes>
-        </>
-      ) : (
-        <>
-          <p>Welcome {user.username}</p>
-          <ProjectList
-            projectList={projectList}
-            setProjectList={setProjectList}
-            userId={user.id}
-          />
-        </>
-      )}
-      <Footer />
+      <Navbar user={user} setUser={setUser}/>
+      <Routes>
+        <Route path="/" element={<h1>Welcome to the Homepage</h1>}/>
+        {!user ? <Route path="/signin" element={<SignIn setUser={setUser}/>} /> : null}
+        {!user ? <Route path="/signup" element={<SignUp/>} /> : null}
+        {user ? <Route path={`/:userId/projects`} element={<ProjectList/>} /> : null}
+        {user ? <Route path="/:userId/projects/:projectId/tasks" element={<TaskList />} /> : null}
+        <Route path="*" element={<h1>Page Not Found</h1>} />
+      </Routes>
+      <Footer/>
     </>
   );
 }

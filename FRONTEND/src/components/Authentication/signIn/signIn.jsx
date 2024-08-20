@@ -1,7 +1,9 @@
 import { useState } from "react";
-import '../signIn/signIn.css'
-import { Link } from "react-router-dom";
-export default function SignIn({signIn, getUser, setUser}) {
+import { useNavigate } from "react-router-dom";
+import '../signIn/signIn.css';
+import authService from "../../../services/authService";
+export default function SignIn({setUser}) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({ username: "", password: "" });
   function handleFormData(event) {
     const { name, value } = event.target;
@@ -9,8 +11,11 @@ export default function SignIn({signIn, getUser, setUser}) {
   }
   async function handleFormSubmit(event) {
     event.preventDefault();
-    signIn(formData);
-    setUser(await getUser)
+    await authService.signin(formData);
+    const user = await authService.getUser();
+    setUser(user); 
+    console.log(user);
+    navigate(`/${user.id}/projects`);
   }
   return (
     <div className="inner-body">
@@ -39,7 +44,7 @@ export default function SignIn({signIn, getUser, setUser}) {
             value={formData.password}
           />
         </div>
-        <button className="button-sign-in" type="submit"><Link to="/">Sign In</Link></button>
+        <button className="button-sign-in" type="submit">Sign In</button>
       </form>
     </div>
     </div>

@@ -14,7 +14,6 @@ const getUser = () => {
     const rawPayload = token.split(".")[1];
     const jsonPayload = window.atob(rawPayload);
     const user = JSON.parse(jsonPayload);
-    console.log(user);
     return user;
   } catch (error) {
     console.log(error);
@@ -35,7 +34,7 @@ const signup = async (formData) => {
     }
     return json;
   } catch (error) {
-    console.error("Signup error:", error);
+    console.log("Signup error:", error);
     throw error;
   }
 };

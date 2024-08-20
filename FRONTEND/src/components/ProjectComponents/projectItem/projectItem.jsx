@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 // Importing Project Services
 import projectService from "../../../services/projectService";
@@ -7,7 +7,7 @@ import projectService from "../../../services/projectService";
 export default function ProjectItem({ userId, projectName, projectId, refetchProjectList }) {
   const [update, setUpdate] = useState(false);
   const [formData, setFormData] = useState({ name: projectName });
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
 
   function handleFormData(event) {
     const { name, value } = event.target;

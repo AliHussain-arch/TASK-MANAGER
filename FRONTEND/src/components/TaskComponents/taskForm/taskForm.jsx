@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import taskService from "../../../services/taskService";
 
-export default function TaskForm({ userId, projectId }) {
+export default function TaskForm({fetchTaskList}) {
+  const { projectId, userId } = useParams(); 
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -19,15 +21,17 @@ export default function TaskForm({ userId, projectId }) {
   async function handleFormSubmit(event) {
     event.preventDefault();
     try {
-      await taskService.createTask(userId, projectId, formData);
+      await taskService.createTask(userId, projectId, formData); 
       setSuccess("Task created successfully!");
       setFormData({
         title: '',
         description: '',
         status: 'Pending',
       });
+      fetchTaskList();
       setError(null);
     } catch (err) {
+      console.log("Error:", err);
       setError("Failed to create task. Please try again.");
       setSuccess(null);
     }
