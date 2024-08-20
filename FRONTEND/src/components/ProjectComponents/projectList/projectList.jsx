@@ -27,21 +27,32 @@ export default function ProjectList({ userId, projectList, setProjectList }) {
   }
 
   if (!Array.isArray(projectList) || projectList.length === 0) {
-    return <h1>No Projects Found</h1>;
+    return (
+      <>
+        <ProjectForm userId={userId} refetchProjectList={refetchProjectList} />
+        <h1>No Projects Found</h1>
+      </>
+    );
   }
 
   return (
     <>
-      <ProjectForm userId={userId} refetchProjectList={refetchProjectList}/>
+      <ProjectForm userId={userId} refetchProjectList={refetchProjectList} />
       <h1>Projects list</h1>
       <ul>
-      <div className="Projects-list-cards-contener">
-      {projectList.map((project) => (
-        <div className="Projects-list-cards">
-        <ProjectItem key={project._id} projectId={project._id} projectName={project.name} userId={userId} refetchProjectList={refetchProjectList}/>
+        <div className="Projects-list-cards-contener">
+          {projectList.map((project) => (
+            <div className="Projects-list-cards" key={project._id}>
+              <ProjectItem 
+                projectId={project._id} 
+                projectName={project.name} 
+                userId={userId} 
+                refetchProjectList={refetchProjectList} 
+              />
+            </div>
+          ))}
         </div>
-      ))}
-    </div></ul>
-  </>
+      </ul>
+    </>
   );
 }
