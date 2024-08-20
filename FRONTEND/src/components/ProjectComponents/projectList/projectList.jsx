@@ -1,12 +1,9 @@
 import { useEffect } from "react";
 import ProjectItem from '../projectItem/projectItem';
-<<<<<<< HEAD
-import '../projectList/projectList.css'
-=======
+
 import '../projectList/projectList.css';
 import ProjectForm from "../projectForm/projectForm";
 import projectService from "../../../services/projectService";
->>>>>>> 005b7dc118ca05913229b097a5cbe1e356088c20
 
 export default function ProjectList({ userId, projectList, setProjectList }) {
   useEffect(() => {
