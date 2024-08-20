@@ -1,0 +1,26 @@
+.but-save , .but-delet , .but-update{
+    background-color: #916de5;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+
+.but-save:hover, .but-delet:hover , .but-update:hover{
+background-color: #3e159c;
+color: #fff;
+font-size: 13px;
+padding: 10px ;
+border-radius: 8px;
+font-weight: 600;
+letter-spacing: 0.5px;
+text-transform: uppercase;
+margin-top: 10px;
+cursor: pointer;
+}
