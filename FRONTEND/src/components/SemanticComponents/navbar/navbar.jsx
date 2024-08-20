@@ -8,7 +8,7 @@ export default function Navbar({ user, setUser }) {
     <nav>
       <div className="nav-left">
         <img className='nav-logo' src='https://avatars.slack-edge.com/2021-07-19/2282472048054_9a51d280179d828b3ad7_512.png' alt="Logo" />
-        <a href="#" aria-label="Home">Home</a>
+        <a href="/" aria-label="Home">Home</a>
       </div>
       <div className="nav-right">
          
