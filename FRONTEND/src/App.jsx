@@ -59,11 +59,14 @@ function App() {
     <>
       <Navbar />
       {!user ? (
+        <>
         <SignIn
           signIn={authService.signin}
           getUser={authService.getUser}
           setUser={setUser}
         />
+        <SignUp signUp={authService.signup} />
+        </>
       ) : (
         <>
           <p>Welcome {user.username}</p>
