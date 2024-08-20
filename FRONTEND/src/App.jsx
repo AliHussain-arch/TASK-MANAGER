@@ -25,6 +25,7 @@ import projectService from "./services/projectService";
 
 // Importing Task Services
 import taskService from "./services/taskService";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -60,12 +61,22 @@ function App() {
       <Navbar />
       {!user ? (
         <>
-        <SignIn
-          signIn={authService.signin}
-          getUser={authService.getUser}
-          setUser={setUser}
-        />
-        <SignUp signUp={authService.signup} />
+          <Routes>
+            <Route
+              path="/signin"
+              element={
+                <SignIn
+                  signIn={authService.signin}
+                  getUser={authService.getUser}
+                  setUser={setUser}
+                />
+              }
+            />
+            <Route
+              path="/signup"
+              element={<SignUp signUp={authService.signup} />}
+            />
+          </Routes>
         </>
       ) : (
         <>
