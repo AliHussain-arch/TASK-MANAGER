@@ -58,7 +58,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar user={user} setUser={setUser} />
       {!user ? (
         <>
           <Routes>
@@ -81,14 +81,6 @@ function App() {
       ) : (
         <>
           <p>Welcome {user.username}</p>
-          <button
-            onClick={() => {
-              authService.signout();
-              setUser("");
-            }}
-          >
-            SignOut
-          </button>
           <ProjectForm
             createProject={projectService.createProject}
             updateProject={projectService.updateProject}

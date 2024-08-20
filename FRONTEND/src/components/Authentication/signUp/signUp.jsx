@@ -1,5 +1,6 @@
 import { useState } from "react";
 import '../signUp/signUp.css';
+import { Link } from "react-router-dom";
 export default function SignUp({signUp}) {
   const [formData, setFormData] = useState({
     username: '',
@@ -57,7 +58,7 @@ export default function SignUp({signUp}) {
             value={formData.confirmPassword}
           />
         </div>
-        <button className="button-Sign-Up" type="submit">Sign Up</button>
+        <button className="button-Sign-Up" type="submit"><Link to="/signin">Sign Up</Link></button>
       </form>
     </div>    </div>
 

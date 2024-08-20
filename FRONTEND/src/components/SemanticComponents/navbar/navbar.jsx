@@ -1,8 +1,9 @@
 import React from 'react';
 import '../navbar/navbar.css';
 import { Link } from 'react-router-dom';
+import authService from '../../../services/authService';
 
-export default function Navbar({ user }) {
+export default function Navbar({ user, setUser }) {
   return (
     <nav>
       <div className="nav-left">
@@ -10,10 +11,20 @@ export default function Navbar({ user }) {
         <a href="#" aria-label="Home">Home</a>
       </div>
       <div className="nav-right">
+         
+        {!user ? 
           <>
-            <Link to="/signin" aria-label="Sign In">Sign In</Link>
-            <Link to="/signup" aria-label="Sign Up">Sign Up</Link>
+            <Link to="/signin" id="Sign In">Sign In</Link>
+            <Link to="/signup" id="Sign Up">Sign Up</Link>
           </>
+          :  <Link to="/signout" id="Sign Out"><button
+          onClick={() => {
+            authService.signout();
+            setUser("");
+          }}
+        >
+          SignOut
+        </button></Link>}
       </div>
     </nav>
   );
