@@ -1,27 +1,53 @@
 
 /* footer css*/
 footer{
-    height: auto;
-    display: flex;
-    width: 100%;
-    font-family: monospace;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: #000000;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    
-    text-align: center;
-  }
+  background: #000;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: #fff;
+  font-family: monospace;
+  width: 100%; 
+  box-sizing: border-box; 
+  margin-top: 0px;
+  text-align: center;
+  align-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+footer a {
+  text-decoration: none;
+  color: #fff;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+  font-size: 20px;
+}
+
+footer a:hover {
+  color: #7799D8;
+}
 
   .footer-content h3{
 
     font-size: 15px;
     text-transform: capitalize;
-  
-  
   }
+  .footer li {
+    color: #fff;
+    margin: 0 10px;
+  }
+  .footer a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .footer Link {
+    color: #fff;
+    margin: 0 10px;
+  }
+  
+
   .footer-contact p {
     max-width: 500px;
     margin: 15px auto;
@@ -39,12 +65,13 @@ footer{
     padding: 0px 20px ;
   }
   .footerHelp li {
+    color: #fff;
     margin: 0 10px;
   }
   .footerHelp a {
   
     text-decoration: none;
-    color: #000000;
+    color: #fff;
   }
 
   .footerHelp a i {
