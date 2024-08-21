@@ -7,20 +7,22 @@ export default function About() {
       <h3>Our Team</h3>
   <div className="team-container">
     <div className="team-member">
+      <div className="pi-fadel">
       <img src="https://avatars.githubusercontent.com/u/148485362?s=64&v=4" alt="Team Member 1" />
-      <h4>Fadel Mohamead</h4>
+    </div>
+      <a href="https://github.com/Fadelm300"><h3>Fadel moussa</h3></a>
       <p>Member</p>
     </div>
     <div className="team-member">
       <img src="https://avatars.githubusercontent.com/u/172982681?s=48&v=4" alt="Team Member 2" />
-      <h4>Ali Hussain</h4>
+      <a href="https://github.com/AliHussain-arch"><h3>Ali Hussain</h3></a>
       <p>Member</p>
     </div>
     <div className="team-member">
       <img src="https://avatars.githubusercontent.com/u/172836087?s=48&v=4" alt="Team Member 3" />
-      <h4>Fadhel SH</h4>
+      <a href="https://github.com/Fadhel-SH"><h3>Fadhel SH</h3></a>
       <p>Member</p>
-    </div>
+      </div>
   </div>
     </section>
 
