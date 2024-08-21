@@ -24,7 +24,7 @@ export default function TaskList({ userId }) {
   return (
     <>
       <TaskForm userId={userId} projectId={projectId} fetchTaskList={fetchTaskList} />
-      <h1>Tasks for Project {projectId}</h1>
+      <h1>Tasks</h1>
       <div>
         <ul>
           {taskList.length === 0 ? (
