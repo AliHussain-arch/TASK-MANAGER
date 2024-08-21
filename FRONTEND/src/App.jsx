@@ -38,7 +38,7 @@ function App() {
     <>
       <Navbar user={user} setUser={setUser}/>
       <Routes>
-        <Route path="/" element={<h1>Welcome to the Homepage</h1>}/>
+        <Route path="/" element={<Homepage/>}/>
         {!user ? <Route path="/signin" element={<SignIn setUser={setUser}/>} /> : null}
         {!user ? <Route path="/signup" element={<SignUp/>} /> : null}
         {user ? <Route path={`/:userId/projects`} element={<ProjectList/>} /> : null}
