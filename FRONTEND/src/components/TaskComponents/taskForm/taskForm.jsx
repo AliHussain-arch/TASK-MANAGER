@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import taskService from "../../../services/taskService";
+import '../taskForm/taskForm.css'
 
 export default function TaskForm({fetchTaskList}) {
   const { projectId, userId } = useParams(); 
@@ -39,8 +40,12 @@ export default function TaskForm({fetchTaskList}) {
 
   return (
     <>
-      <h1>TaskForm</h1>
+      <section id="TaskForm" className="TaskForm-card">
+      <h1>Create Task</h1>
       <form onSubmit={handleFormSubmit}>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {success && <p style={{ color: 'green' }}>{success}</p>}
+
         <div>
           <label htmlFor="title">Title:</label>
           <input
@@ -65,8 +70,9 @@ export default function TaskForm({fetchTaskList}) {
           <button type="submit">Add Task</button>
         </div>
       </form>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
+      </section>
+      
     </>
+
   );
 }
