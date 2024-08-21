@@ -41,8 +41,11 @@ export default function TaskForm({fetchTaskList}) {
   return (
     <>
       <section id="TaskForm" className="TaskForm-card">
-      <h1>TaskForm</h1>
+      <h1>Create Task</h1>
       <form onSubmit={handleFormSubmit}>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {success && <p style={{ color: 'green' }}>{success}</p>}
+
         <div>
           <label htmlFor="title">Title:</label>
           <input
@@ -68,9 +71,7 @@ export default function TaskForm({fetchTaskList}) {
         </div>
       </form>
       </section>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      {success && <p style={{ color: 'green' }}>{success}</p>}
-
+      
     </>
 
   );
