@@ -27,6 +27,9 @@ import About from "./components/About/about";
 // Importing Contact Components
 import Contact from "./components/Contact/contact";
 
+// Importing Homepage Components
+import Homepage from "./components/Hompage/Homepage";
+
 
 function App() {
   const [user, setUser] = useState(authService.getUser());
@@ -40,6 +43,7 @@ function App() {
         {!user ? <Route path="/signup" element={<SignUp/>} /> : null}
         {user ? <Route path={`/:userId/projects`} element={<ProjectList/>} /> : null}
         {user ? <Route path="/:userId/projects/:projectId/tasks" element={<TaskList />} /> : null}
+        <Route path="/Homepage" element={<Homepage/>}/>
         <Route path="/help" element={<Help/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/contact" element={<Contact/>}/>

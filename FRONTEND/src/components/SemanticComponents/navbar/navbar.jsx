@@ -17,7 +17,8 @@ export default function Navbar({ user, setUser}) {
   return (
     <nav>
         <div className="nav-left">
-        <img className='nav-logo' src='https://avatars.slack-edge.com/2021-07-19/2282472048054_9a51d280179d828b3ad7_512.png' alt="Logo" />
+        <Link to="/Homepage">Home</Link>
+        {/* <img className='nav-logo' src='https://avatars.slack-edge.com/2021-07-19/2282472048054_9a51d280179d828b3ad7_512.png' alt="Logo" /> */}
       </div>
       <div className="nav-right">
          
