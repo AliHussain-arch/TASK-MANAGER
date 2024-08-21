@@ -16,27 +16,29 @@ export default function Navbar({ user, setUser}) {
   }
   return (
     <nav>
-      <ul>
+        <div className="nav-left">
+        <img className='nav-logo' src='https://avatars.slack-edge.com/2021-07-19/2282472048054_9a51d280179d828b3ad7_512.png' alt="Logo" />
+      </div>
+      <div className="nav-right">
+         
         {user ? (
           <>
-            <li>
+            
               <Link to={`${user.id}/projects`}>Projects</Link>
-            </li>
-            <li>
-              <button onClick={signout}>Sign Out</button>
-            </li>
+            
+              <button className='but-Sign-Out' onClick={signout}>Sign Out</button>
+            
           </>
         ) : (
           <>
-            <li>
+            
               <Link to="/signin">Sign In</Link>
-            </li>
-            <li>
+           
               <Link to="/signup">Sign Up</Link>
-            </li>
+            
           </>
         )}
-      </ul>
+      </div>
     </nav>
   );
 }

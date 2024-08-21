@@ -32,7 +32,7 @@ export default function SignUp() {
         <form onSubmit={handleFormSubmit}>
           <div>
             <label htmlFor="username">Username</label>
-            <input
+            <input className="input-name"
               type="text"
               id="username"
               name="username"
@@ -44,7 +44,7 @@ export default function SignUp() {
 
           <div>
             <label htmlFor="password">Password</label>
-            <input
+            <input className="input-pas"
               type="password"
               id="password"
               name="password"
@@ -56,7 +56,7 @@ export default function SignUp() {
 
           <div>
             <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
+            <input className="input-pas"
               type="password"
               id="confirmPassword"
               name="confirmPassword"
