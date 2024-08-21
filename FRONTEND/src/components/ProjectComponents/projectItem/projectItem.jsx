@@ -47,8 +47,8 @@ export default function ProjectItem({ userId, projectName, projectId, refetchPro
           <button className="but-save" type="submit">Save</button>
         </form>
       )}
-      <div>
-        <button className="but-delet" style={{width: update ? '100%' : ''}}
+      <div className="class-but-delet-update">
+        <button className="but-delet" style={{alignItems: update ? 'cnter' : ''}}
           type="button"
           onClick={handleDeleteProject}
         >
@@ -57,11 +57,11 @@ export default function ProjectItem({ userId, projectName, projectId, refetchPro
         {!update && (
           <button className="but-update" type="button" onClick={() => setUpdate(true)}>
             
-            <img className="but-edit" src="https://margin.finideas.com/img/edit.png" alt="edit-alt" srcset="" />
+            <img className="img-edit" src="https://margin.finideas.com/img/edit.png" alt="edit-alt" srcset="" />
 
           </button>
         )}
-      </div>
+        </div>
     </ul>
   );
 }
