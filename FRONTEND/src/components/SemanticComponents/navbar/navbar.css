@@ -40,11 +40,15 @@
 
 .but-Sign-Out{
 
-
+font-size: 17px;
   background: none;
   border: none;
   color: inherit;
-  font: inherit;
   cursor: pointer;
   padding: 0;
+}
+nav .but-Sign-Out:hover {
+  color: #7799D8;
+  transition: color 0.3s ease;
+
 }

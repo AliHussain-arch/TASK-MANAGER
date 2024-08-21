@@ -16,9 +16,10 @@ import Navbar from "./components/SemanticComponents/navbar/navbar";
 
 // Importing Router Components
 import { Route, Routes } from "react-router-dom";
+import authService from "./services/authService";
 
 function App() {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState(authService.getUser());
 
   return (
     <>

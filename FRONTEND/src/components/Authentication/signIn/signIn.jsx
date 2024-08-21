@@ -24,7 +24,7 @@ export default function SignIn({setUser}) {
       <form onSubmit={handleFormSubmit}>
         <div>
           <label htmlFor="username">Username</label>
-          <input
+          <input className="input-name"
             type="text"
             id="username"
             name="username"
@@ -35,7 +35,7 @@ export default function SignIn({setUser}) {
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input
+          <input className="input-pas"
             type="password"
             id="password"
             name="password"

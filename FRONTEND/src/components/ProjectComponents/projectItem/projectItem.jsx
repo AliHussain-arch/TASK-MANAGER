@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-
+import '../projectItem/projectItem.css'
 // Importing Project Services
 import projectService from "../../../services/projectService";
 
@@ -41,6 +41,7 @@ export default function ProjectItem({ userId, projectName, projectId, refetchPro
             name="name"
             value={formData.name}
             onChange={handleFormData}
+            className="input-Project-Name"
           />
           
           <button className="but-save" type="submit">Save</button>
@@ -51,11 +52,13 @@ export default function ProjectItem({ userId, projectName, projectId, refetchPro
           type="button"
           onClick={handleDeleteProject}
         >
-          Delete Project
-        </button>
+            <img className="delet-img" src="https://cdn-icons-png.flaticon.com/512/3405/3405244.png" alt="delet-alt" srcset="" />
+            </button>
         {!update && (
           <button className="but-update" type="button" onClick={() => setUpdate(true)}>
-            Update Project
+            
+            <img className="but-edit" src="https://margin.finideas.com/img/edit.png" alt="edit-alt" srcset="" />
+
           </button>
         )}
       </div>
