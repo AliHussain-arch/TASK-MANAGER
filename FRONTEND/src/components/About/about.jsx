@@ -1,4 +1,4 @@
-import '../About/About.css'
+import '../About/about.css'
 export default function About() {
   return (
     <section id="about-us">

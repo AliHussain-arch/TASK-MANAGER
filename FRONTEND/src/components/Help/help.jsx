@@ -1,4 +1,4 @@
-import '../help/help.css'
+import '../Help/help.css'
 export default function Help() {
   return (
     <section id="help">
