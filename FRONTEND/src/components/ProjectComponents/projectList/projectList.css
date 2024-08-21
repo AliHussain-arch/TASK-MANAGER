@@ -17,7 +17,7 @@ display: grid;
 column-gap: 50px;
 border-width: 2px;
   width: 28vw;
-  height: 10vw;
+  height: 13vw;
   padding: 2px;
 
   border-radius: 15px;
@@ -26,5 +26,8 @@ border-width: 2px;
   box-shadow: 0 0 5px #cbcbcb ;
 
 }
+ul{
 
+  padding-inline-start: 0px;
+}
 
