@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../Hompage/Homepage.css'
 export default function About() {
   return (
@@ -5,7 +6,9 @@ export default function About() {
         <div className="header">
       <h1>Welcome to CodeTrio Task Manager</h1>
       <p>Your efficient project management solution.</p>
-      <button onClick={() => window.location.href = '/#'}>Get Started</button>
+      <Link to='/signup'>
+        <button>Get Started</button>
+      </Link>
 </div>
 
 
