@@ -5,7 +5,7 @@
 
 ![Task Manager](imglink)
 
-**Website:** [link](imgwebsite)
+**Website:** [link](https://task-manager-group-project-frontend.vercel.app/)
 
 The Task Manager application leverages the MERN stack—MongoDB, Express, React.js, and Node.js—to deliver a seamless project management experience. Upon signing up, users gain access to a secure environment where they can create and manage projects with ease. Each project starts with a title, serving as the foundation for adding tasks. Users can prioritize tasks, mark them as completed, and edit or delete them as project requirements change.
 
@@ -30,11 +30,11 @@ Overall, the Task Manager offers a comprehensive solution for individuals and te
 
 ## Frontend Link
 
-(Include link here)
+[link](https://github.com/AliHussain-arch/TASK-MANAGER-GROUP-PROJECT-FRONTEND)
 
 ## Backend Link
 
-(Include link here)
+[link](https://github.com/AliHussain-arch/TASK-MANAGER-GROUP-PROJECT-BACKEND)
 
 ## Pseudocode
 
