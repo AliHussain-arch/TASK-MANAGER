@@ -64,6 +64,18 @@ Overall, the Task Manager offers a comprehensive solution for individuals and te
    - Deploy the frontend on Vercel and backend on Heroku.
 
 ![ERD](./README%20IMAGES/erd.png)
+![About](./README%20IMAGES/AboutUs.png)
+![Contact](./README%20IMAGES/ContactUs.png)
+![Create](./README%20IMAGES/Createtask.png)
+![Edit](./README%20IMAGES/EditingTask.png)
+![Help](./README%20IMAGES/HelpPage.png)
+![Project](./README%20IMAGES/ProjectEdit.png)
+![Signin](./README%20IMAGES/SignIn.png)
+![Signup](./README%20IMAGES/SignUp.png)
+![Task](./README%20IMAGES/Task.png)
+![UserHome](./README%20IMAGES/UserHome.png)
+
+
 
 ## Planned Future Enhancements
 
