@@ -65,9 +65,6 @@ Overall, the Task Manager offers a comprehensive solution for individuals and te
 
 ![ERD](./README%20IMAGES/erd.png)
 
-   
-
-
 ## Planned Future Enhancements
 
 - Allow multiple users to collaborate on the same project.
@@ -76,3 +73,4 @@ Overall, the Task Manager offers a comprehensive solution for individuals and te
 - Enhance functionality and styling for better performance and appearance.
 
 ---
+
