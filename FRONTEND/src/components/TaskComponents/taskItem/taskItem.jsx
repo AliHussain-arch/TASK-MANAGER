@@ -70,13 +70,27 @@ export default function TaskItem({ task, fetchTaskList }) {
 
   const handleStyle = () => {
     if (task.status === "complete") {
-      return { backgroundColor: "green" };
+      return { backgroundColor: "#32CD32" };
     } else if (task.status === "inprogress") {
       return { backgroundColor: "yellow" };
     } else if (task.status === "pending") {
       return { backgroundColor: "red" };
     }
     return {};
+  };
+
+  const saveButtonStyle = {
+    backgroundColor: '#32CD32',
+    color: '#fff',
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '1em',
+    fontWeight: 'bold',
+    marginTop: '20px',
+    outline: 'none',
+    transition: 'background-color 0.3s ease',
   };
 
   return (
@@ -110,7 +124,7 @@ export default function TaskItem({ task, fetchTaskList }) {
               task.description
             )}
           </p>
-          {update ? <button type="submit">Save</button> : null}
+          {update ? <button type="submit" style={saveButtonStyle}>Save</button> : null}
         </form>
         <p>{task.status}</p>
         <div className="class-but-delet-update">

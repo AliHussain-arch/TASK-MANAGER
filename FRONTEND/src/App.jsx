@@ -18,6 +18,9 @@ import Navbar from "./components/SemanticComponents/navbar/navbar";
 import { Route, Routes } from "react-router-dom";
 import authService from "./services/authService";
 
+// Importing Homepage Components
+import Home from "./components/Hompage/Homepage";
+
 // Importing Help Componets
 import Help from "./components/Help/help";
 
@@ -35,7 +38,7 @@ function App() {
     <>
       <Navbar user={user} setUser={setUser}/>
       <Routes>
-        <Route path="/" element={<h1>Welcome to the Homepage</h1>}/>
+        <Route path="/" element={<Home/>}/>
         {!user ? <Route path="/signin" element={<SignIn setUser={setUser}/>} /> : null}
         {!user ? <Route path="/signup" element={<SignUp/>} /> : null}
         {user ? <Route path={`/:userId/projects`} element={<ProjectList/>} /> : null}

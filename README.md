@@ -1,78 +1,78 @@
-# Task Manager 
 
-![Task Manager ](imglink)
-
-
-
-#website [link](imgwebsite)
-
-## Overview
-
-The task manager offers a user-friendly platform for organizing projects. Users first add a title to their project and then can add tasks to complete it. Tasks can be marked as completed, streamlining project management.
-
-## Date: #/#/2024
-### BY: Fadel Mohammad
-### BY: Ali Hussain
-### BY: Fadel Abbas 
-
-* As a new user, I want to be able to sign up for an account so that I can access the task manager features.
-* As a user, I want to create a new project by adding a title so that I can organize my work.
-* As a user, I want to add tasks to my projects so that I can track my progress.
-* As a user, I want to mark tasks as completed so that I can manage my workload effectively.
-* As a user, I want to prioritize tasks within my projects so that I can focus on what's most important.
-* As a user, I want to edit or delete tasks as needed so that my task list remains up-to-date.
-* As a user, I want secure access to my account to ensure my project information is protected.
-## website plan
-![ERD](img)
-## ERD
-![ERD](./README%20IMAGES/erd.png)
-## Component diagram
-
-![ERD](./README%20IMAGES/Component_diagram.png)
-
-
-
-## Pseudocode
-
-1. **Define State Variables**
-   - Use `useState` for:
-     - Project title
-     - Task list (array of tasks)
-
-2. **Component Structure**
-   - Create components for:
-     - ProjectForm
-     - TaskForm
-     - ProjectList
-     - TaskList
-
-3. **Event Handlers**
-   - Handle project creation
-   - Handle task addition
-   - Handle task completion
-
-4. **Use Effects**
-   - Use `useEffect` to initialize or update states as needed
-
-5. **Render Function**
-   - Map over state variables to render UI components
-
-6. **User Interactions**
-   - On "Sign up" button click
-   - On "Add project" button click
-   - On "Add task" button click
-   - On "Mark task as completed" button click
-
-
+---
 
 # Task Manager
 
+![Task Manager](imglink)
 
-<p align="center"><b>Technologies Used</b></p>
+**Website:** [link](imgwebsite)
 
-* React.js    
-* HTML
-* CSS
-* Express
-* Npm
-* MongoDB
+The Task Manager application leverages the MERN stack—MongoDB, Express, React.js, and Node.js—to deliver a seamless project management experience. Upon signing up, users gain access to a secure environment where they can create and manage projects with ease. Each project starts with a title, serving as the foundation for adding tasks. Users can prioritize tasks, mark them as completed, and edit or delete them as project requirements change.
+
+The platform is designed to be intuitive with a clean, responsive interface built using HTML and CSS, ensuring accessibility from any device. The backend, powered by Express and MongoDB, provides robust data handling and secure user authentication, while npm manages dependencies to keep the application modular and maintainable.
+
+Overall, the Task Manager offers a comprehensive solution for individuals and teams looking to organize their work and achieve their goals efficiently.
+
+## Trello Links (Planning)
+
+- [Basic Server Setup](https://trello.com/b/nT2QQ22u/basic-server-setup)
+- [Project 3](https://trello.com/b/Y9FuKXls/project-3)
+
+## Technologies Used
+
+- React.js
+- HTML
+- CSS
+- Express
+- MongoDB
+- npm
+- Prettier (code formatter)
+
+## Frontend Link
+
+(Include link here)
+
+## Backend Link
+
+(Include link here)
+
+## Pseudocode
+
+1. **Setup File Structure**
+   - Create file structures for both frontend and backend.
+   
+2. **Install Modules**
+   - Install necessary modules for both frontend and backend.
+
+3. **Database and Models**
+   - Create USER, PROJECT, and TASK models.
+   - Connect to MongoDB database.
+
+4. **Backend Setup**
+   - Setup routes for user, project, and task management.
+   - Implement JWT authentication for secure sign-up and login.
+   - Create necessary controllers for each route.
+   - Test the backend using Postman.
+
+5. **Frontend Setup**
+   - Create the frontend using Vite.
+   - Develop necessary components and CSS styles.
+   - Implement routing within React components.
+   - Create forms and services to connect frontend with backend.
+   - Apply CRUD operations for each model.
+   - Format code using Prettier.
+   - Deploy the frontend on Vercel and backend on Heroku.
+
+![ERD](./README%20IMAGES/erd.png)
+
+   
+
+
+## Planned Future Enhancements
+
+- Allow multiple users to collaborate on the same project.
+- Enable users to create lists within tasks for better organization.
+- Improve user interface and overall user experience.
+- Enhance functionality and styling for better performance and appearance.
+
+---
