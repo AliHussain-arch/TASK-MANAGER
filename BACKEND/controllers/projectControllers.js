@@ -3,6 +3,7 @@ const Project = require("../models/projectModel");
 
 // Create project
 const CreateProject = async (req, res) => {
+  if(String(req.user.id) === req.params.userId){
   try {
     const user = await User.findById(req.params.userId);
     if (!user) {
@@ -16,20 +17,24 @@ const CreateProject = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+}
 };
 
 // List projects
 const ListProject = async (req, res) => {
-  try {
-    const projects = await Project.find({ owner: req.params.userId });
-    res.status(200).json({ projects });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+  if(String(req.user.id) === req.params.userId){
+    try {
+      const projects = await Project.find({ owner: req.params.userId });
+      res.status(200).json({ projects });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+}
 };
 
 // Update project
 const UpdateProject = async (req, res) => {
+  if(String(req.user.id) === req.params.userId){
   try {
     const project = await Project.findOneAndUpdate(
       { _id: req.params.projectId, owner: req.params.userId },
@@ -43,10 +48,12 @@ const UpdateProject = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+}
 };
 
 // Delete project
 const DeleteProject = async (req, res) => {
+  if(String(req.user.id) === req.params.userId){
   try {
     const project = await Project.findOneAndDelete({
       _id: req.params.projectId,
@@ -59,6 +66,7 @@ const DeleteProject = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
+}
 };
 
 module.exports = { CreateProject, ListProject, UpdateProject, DeleteProject };

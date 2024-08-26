@@ -68,7 +68,6 @@ export default function ProjectItem({
             className="delet-img"
             src="https://cdn-icons-png.flaticon.com/512/3405/3405244.png"
             alt="delet-alt"
-            srcset=""
           />
         </button>
         {!update && (
@@ -81,7 +80,6 @@ export default function ProjectItem({
               className="img-edit"
               src="https://margin.finideas.com/img/edit.png"
               alt="edit-alt"
-              srcset=""
             />
           </button>
         )}
