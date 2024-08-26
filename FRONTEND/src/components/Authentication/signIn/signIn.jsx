@@ -14,7 +14,6 @@ export default function SignIn({setUser}) {
     await authService.signin(formData);
     const user = await authService.getUser();
     setUser(user); 
-    console.log(user);
     navigate(`/${user.id}/projects`);
   }
   return (

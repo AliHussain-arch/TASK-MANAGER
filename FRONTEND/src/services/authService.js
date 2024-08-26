@@ -8,7 +8,6 @@ const getUser = () => {
   try {
     const token = localStorage.getItem("token");
     if (!token) {
-        console.log('Invalid Token')
         return null
     };
     const rawPayload = token.split(".")[1];

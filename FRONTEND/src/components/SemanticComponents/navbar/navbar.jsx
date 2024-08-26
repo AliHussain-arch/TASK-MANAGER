@@ -6,7 +6,6 @@ export default function Navbar({ user, setUser}) {
   const navigate = useNavigate();
   async function signout(){
     try{
-      console.log('signing out');
       await authService.signout();
       setUser('');
       navigate('/');
